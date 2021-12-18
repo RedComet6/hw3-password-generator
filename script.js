@@ -1,1 +1,5 @@
+function generatePassword() {
+  test;
+}
 
+generatePassword();
