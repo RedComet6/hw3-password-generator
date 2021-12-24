@@ -82,6 +82,7 @@ let specChars = [
 function generatePassword() {
   // 1. assign a variable to the length of the password
   let pwBank = [];
+  let pwActive = [];
   let pwLength = prompt(
     "Passwords should be between 8 and 128 chracters long. How long of a password would you like?"
   );
@@ -110,10 +111,15 @@ function generatePassword() {
     }
   }
 
+  for (let i = 0; i < pwLength.length; i++) {
+    let randomItem = pwBank[Math.floor(Math.random() * pwBank.length)];
+    pwActive = pwActive.push(`${randomItem}`);
+  }
+
   // 1d. push each letter array into password array
   // 1e. create a random 10 letter password
   // 1e. convert password array back to string
-  return pwBank.join("");
+  return pwActive.join("");
 }
 
 // Write password to the #password input
