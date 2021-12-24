@@ -16,7 +16,7 @@ function generatePassword() {
 
     if (pwLength < 8 || pwLength > 128) {
         alert("Please choose a password length between 8 and 128 characters");
-        generatePassword();
+        return null;
     } else {
         let useLower = confirm("Do you want lowercase letters to be used?");
         let useUpper = confirm("Do you want upper case letters to be used?");
@@ -26,27 +26,37 @@ function generatePassword() {
         // 1c. loop through array of letters
         if (useLower === true) {
             pwBank = pwBank.concat(lcLetters);
+            let randomItem = lcLetters[Math.floor(Math.random() * lcLetters.length)];
+            pwActive.push(`${randomItem}`);
         }
 
         if (useUpper === true) {
             pwBank = pwBank.concat(ucLetters);
+            let randomItem = ucLetters[Math.floor(Math.random() * ucLetters.length)];
+            pwActive.push(`${randomItem}`);
         }
 
         if (useNumbers === true) {
             pwBank = pwBank.concat(pwNumbers);
+            let randomItem = pwNumbers[Math.floor(Math.random() * pwNumbers.length)];
+            pwActive.push(`${randomItem}`);
         }
 
         if (useSpec === true) {
             pwBank = pwBank.concat(specChars);
+            let randomItem = specChars[Math.floor(Math.random() * specChars.length)];
+            pwActive.push(`${randomItem}`);
         }
 
         if (useLower === false && useUpper === false && useNumbers === false && useSpec === false) {
             alert("Your password must contain at least one optional character type, please try again.");
-            generatePassword();
+            return null;
         } else {
-            for (let i = 0; i < pwLength; i++) {
+            // grab one random letter from each array
+            let initialPassLength = pwLength - pwActive.length;
+            for (let i = 0; i < initialPassLength; i++) {
                 let randomItem = pwBank[Math.floor(Math.random() * pwBank.length)];
-                pwActive = pwActive.concat(`${randomItem}`);
+                pwActive.push(`${randomItem}`);
             }
         }
     }
