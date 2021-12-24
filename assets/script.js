@@ -64,7 +64,20 @@ function generatePassword() {
     // 1d. push each letter array into password array
     // 1e. create a random 10 letter password
     // 1e. convert password array back to string
+    shuffleArray(pwActive);
     return pwActive.join("");
+}
+
+// Fisher-Yates technique for shuffling the contents of an array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let randomIndex = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+
+        // swap elements array[i] and array[randomIndex]
+        let substituteIndex = array[i];
+        array[i] = array[randomIndex];
+        array[randomIndex] = substituteIndex;
+    }
 }
 
 // Write password to the #password input
@@ -75,5 +88,5 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-// kicks off the generator
+// begins the generator
 generateBtn.addEventListener("click", writePassword);
