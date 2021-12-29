@@ -10,5 +10,5 @@ A password generator that accepts inputs from the user and uses those inputs to 
 
 ## Links to Application
 
--   Here is the repo: [RedComet6/hw1-b](https://github.com/RedComet6/hw3-password-generator)
--   Here is the pages: [RedComet6 hw1-b Pages](https://redcomet6.github.io/hw3-password-generator/)
+-   Here is the repo: [RedComet6/hw3](https://github.com/RedComet6/hw3-password-generator)
+-   Here is the pages: [RedComet6 hw3 Pages](https://redcomet6.github.io/hw3-password-generator/)
